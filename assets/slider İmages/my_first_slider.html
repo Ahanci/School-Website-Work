@@ -1,0 +1,272 @@
+<!--
+    Burada öncekine ilaveten mouse üstüne geldiğinde durdurma ve ayrıldığında devam etme yaptım.
+    ayrıca span ile ileri geri butonları ekledim.
+    bunlara fonksiyon tanımlayarak tıkladığımda ileri geri yapmasını sağlıyprum:
+-->
+<!DOCTYPE html>
+<html lang="TR-tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My First Slider</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 640px;
+            height: 550px;
+            border: 2px solid rgb(97, 98, 165);
+            margin: 25px auto; /*yukardan 25 sağsol ortala*/
+            position: relative;
+            overflow: hidden; /*diyorum ki resimlerin div dışından gelip gitmesi görünmesin*/
+
+        }
+        .slide{
+            width: 640px;
+            height: 550px;
+            position: absolute;
+            top: 0;
+            right: 640px;
+        }
+        .slide:nth-child(1){
+            right: 0;/* slayt başladığında kutu boş kalıyor, ilk resmi ben sabitleyerek bu sorunu giderdim.*/
+        }
+        @keyframes left_to_center{
+            from{
+                right:640px;
+            }
+            to{
+                right: 0px;
+            }
+        }
+        /*gelen resimlerin diğer tarafa gitmesini istiyorum;bu nedenle tekrar bir animasyon tanımladım:*/
+        @keyframes center_to_left{
+            from{
+                right:0px;
+            }
+            to{
+                right: -640px;
+            }
+        }
+        /* animasyonu JS ile yapacağım, buy nedenle 'left-right 3s ease' ifadesini Js içine alıyorum
+        .slide:nth-child(1){
+            animation:left-right 3s ease;
+        }*/
+        #geri, #ileri{
+            padding: 0.5rem;
+            background-color: purple;
+            color: antiquewhite;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+         }
+         #ileri{
+             right: 10px;
+         }
+         #geri{
+             left:10px;
+         }
+         ul{
+            list-style-type: none;
+            margin-left:5px;
+            margin-right: 5px;
+            margin-bottom: 0;
+            padding:0;
+            position: absolute;
+            bottom:0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            padding: 0.3rem;;
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+            overflow-x:visible;
+            overflow-y: hidden;
+            scrollbar-width: thin;
+            scroll-margin: 0;
+            scroll-padding: 0;
+        }
+        ul li{
+            padding: 0.6rem;
+            border-radius: 1px;
+           /* background-color:rgb(190, 106, 106);*/
+            margin-left: 2px;
+            margin-right: 2px;
+            opacity: 0.6;
+            width: 50px;
+            height: 40px;
+        }
+        ul li.active{
+            background-color: rgb(48, 48, 133);
+            position: absolute;
+            opacity:1;
+            z-index: 2;
+            
+        }
+
+    
+    </style>
+</head>
+<body>
+    
+        <div class="main">
+            <div class="slide">
+                <img src="flow-1.jpg" style="width: 100%; height: 100%;">
+    
+            </div>
+            <div class="slide">
+                <img src="flow-2.jpg"style="width: 100%; height: 100%;">
+    
+            </div>
+            <div class="slide">
+                <img src="flow-3.jpg" style="width: 100%; height: 100%;">
+            </div>
+            
+            <div class="slide">
+                <img src="flow-4.jpg" style="width: 100%; height: 100%;">
+            </div>
+            <div class="slide">
+                <img src="flow-5.jpg" style="width: 100%; height: 100%;">
+            </div>
+            <div class="slide">
+                <img src="flow-6.jpg" style="width: 100%; height: 100%;">
+            </div>
+            <div class="slide">
+                <img src="flow-7.jpg" style="width: 100%; height: 100%;">
+    
+            </div>
+            <div class="slide">
+                <img src="flow-8.jpg"style="width: 100%; height: 100%;">
+    
+            </div>
+            <div class="slide">
+                <img src="flow-9.jpg" style="width: 100%; height: 100%;">
+            </div>
+            
+            <div class="slide">
+                <img src="flow-10.jpg" style="width: 100%; height: 100%;">
+            </div>
+            <div class="slide">
+                <img src="flow-11.jpg" style="width: 100%; height: 100%;">
+            </div>
+            <div class="slide">
+                <img src="flow-12.jpg" style="width: 100%; height: 100%;">
+            </div>
+    
+            <span id="ileri">İLERİ</span>
+            <span id="geri">GERİ</span>
+            <ul>
+                <li class="active" data-index="0"><img src="flow-1.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="1"> <img src="flow-2.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="2"><img src="flow-3.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="3"><img src="flow-4.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="4"><img src="flow-5.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="5"><img src="flow-6.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="6"> <img src="flow-7.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="7"><img src="flow-8.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="8"><img src="flow-9.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="9"><img src="flow-10.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="10"><img src="flow-11.jpg" style="width: 50px; height: 40px;"></li>
+                <li data-index="11"><img src="flow-12.jpg" style="width: 50px; height: 40px;"></li>
+            </ul>
+         </div>
+
+        
+
+    <script>
+        //var slide=document.querySelectorAll('.slide');
+        //slide[0].style.animation='left-right 4s ease';// geliyor resim ama geri gidiyor; istiyorum ki gitmesin, bunedenle right değerini sıfırlıyorum.
+       // slide[0].style.right=0;// bu sefer geldikten sonra kaldı yerinde.
+        // fonksiyon mantığını anlamak için say isimli bir değişken tanımlayıp 0 dan başlatıyorum, konsola da çalıştı+0, çalıştı+1 şeklinde yazıyorum:
+        /* **var say=0;
+        setInterval(function(){
+            console.log('çalıştı'+ say);
+            say++;
+        },3000
+        ) */ 
+        //ama ** hep devam ediyor, bunu bir sayıda durdurmam lazım:aşağıdaki örnekte interval 10 a kadar devam ediyor:
+        /*var say=0;
+        var zamanla=setInterval(function(){
+            console.log('çalıştı'+ say);
+        
+            if(say==10){
+                clearInterval(zamanla)
+            }
+            say++;
+
+        },500);*/
+        var slide=document.querySelectorAll('.slide');
+        // Bunu fonksiyonun içine alıyorum: slide[0].style.animation='left-right 4s ease';
+        // Bu da fonksiyonun içine: slide[0].style.right=0; fonksiyonu ayrı olarak yazıp içine setintervalin içine atıyorum ayrıca:
+        /* Aşağıdaki kodlarla slidelar gelip duracak:
+         var say=0;
+        var zamanla=setInterval(slider,3000);
+        function slider (){
+            slide[say].style.animation='left-right 4s ease';
+        slide[say].style.right=0;
+           if(say==6){
+                clearInterval(zamanla)
+            }
+            say++; }
+     */
+    /* aşağıdaki şekilde*/
+     //var say=1;(aşağıda bunu gelen olarak yaptım) bu sıfırdı,ben ilk resmi ekrana sabitliyorum ilk açıldığında boş kalmasın diye. yukarıda margin değerini sıfır verdim bunu da yapıyorum.
+     var gelen=1;
+     var giden=0;
+        var zamanla=setInterval(slider,2000);
+
+        document.getElementById("ileri").onclick=function(){
+            slider();
+        }
+        document.getElementById("geri").onclick=function(){
+            //geri gelmek için aşağıdaki kodları yazdım, 17.04 tarihli dersin son 30 dk sında var bu(bu kaydı internetten izleyebilirsin)
+            if(gelen>=2){
+                gelen-=2;
+            }
+            else{
+                gelen+=10;
+            }
+            slider();
+        }
+        document.getElementsByClassName('main')[0].onmouseover=function(){
+            clearInterval(zamanla);
+        }
+        document.getElementsByClassName('main')[0].onmouseout=function(){
+            clearInterval(zamanla);// hata verme olasılığına karşı intervali temizle;
+            zamanla=setInterval(slider,1000); //mouse slide üstünden gidince tekrar slide başlıyor.
+        }
+        document.getElementById("ileri").onclick=function(){
+            slider();
+        }
+        function slider (){
+           
+            slide[gelen].style.animation='left_to_center 1s ease';
+            slide[gelen].style.right=0;
+            slide[giden].style.animation='center_to_left 1s ease';
+            slide[giden].style.right='-640px';
+            liElement[giden].classList.remove("active");// slider dan ayrılan resimden active class ını kaldırıyorum.
+            liElement[gelen].classList.add("active")// slider a gelen li elemente active ekliyorum ki geldiğinde veya tıkladığımda noktanın rengi değişsin.
+            giden=gelen;  // diyorum ki gelen gidecek
+            gelen++;
+            if(gelen>=slide.length){
+                gelen=0;}
+            
+           }
+            var liElement=document.querySelectorAll("ul li");
+        for(var i=0;i<liElement.length;i++){
+            liElement[i].onclick=function(){
+               gelen =parseInt(this.getAttribute("data-index"));
+               slider();
+            }
+        }
+    
+
+    </script>
+    
+</body>
+</html>

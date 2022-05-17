@@ -1,0 +1,130 @@
+.count-down{
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+}
+.count{
+    width: 31%;
+    height: 95%;
+    margin: auto;
+    border: 1px solid rgb(0, 200, 255);
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-between;
+    padding: 0;
+}
+.count-header{
+        height: 10%;
+        color: antiquewhite;
+}
+.count-numbers{
+    height:60%;
+    display: flex;
+    
+}
+.count-text{
+    height:20% ;
+    display: flex;
+    font-size: 0.75rem;
+}
+.days{
+    border: 1px solid rgb(0, 229, 255);
+    border-radius: 10%;
+    height: 95%;
+    width: 23%;
+    margin: auto;
+    background-color: aliceblue;
+    font-size: 3rem;
+   
+
+
+}
+.hours{
+    border: 1px solid rgb(0, 183, 255);
+    border-radius: 10%;
+    height: 95%;
+    width: 23%;
+    margin: auto;
+    background-color: white;
+    font-size: 3rem;
+    
+}
+.minutes{
+    border: 1px solid rgb(0, 166, 255);
+    border-radius: 10%;
+    height: 95%;
+    width: 23%;
+    margin: auto;
+    background-color: aliceblue;
+    font-size: 3rem;
+    
+}
+.seconds{
+    border: 1px solid rgb(0, 13, 255);
+    border-radius: 10%;
+    height: 95%;
+    width: 23%;
+    margin: auto;
+    background-color: aliceblue;
+    font-size: 3rem;
+    
+}
+
+
+.days-text{
+    border: 1px solid rgb(0, 187, 255);
+    border-radius: 10%;
+    height: 90%;
+    width: 23%;
+    margin: auto;
+    background-color: aliceblue;
+
+}
+.hours-text{
+    border: 1px solid rgb(0, 221, 255);
+    border-radius: 10%;
+    height: 90%;
+    width: 23%;
+    margin: auto;
+    background-color: aliceblue;
+
+}
+.minutes-text{
+    border: 1px solid rgb(0, 183, 255);
+    border-radius: 10%;
+    height: 90%;
+    width: 23%;
+    margin: auto;
+    background-color: aliceblue;
+
+}
+.seconds-text{
+    border: 1px solid rgb(0, 183, 255);
+    border-radius: 10%;
+    height: 90%;
+    width: 23%;
+
+    margin: auto;
+    background-color: aliceblue;
+
+}
+@media screen and (max-width: 650px){
+    section{
+        grid-template-rows: 300px 450px 25px 900px 25px 2500px 150px 520px;
+    }
+    .count-down{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        flex-direction: column;
+        padding: 0;
+    }
+    .count{
+        width: 98%;
+        height: 32%;
+        margin: 0;
+    }
+}

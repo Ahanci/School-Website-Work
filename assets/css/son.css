@@ -1,0 +1,198 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    width: 100%;
+    height: 50px;
+    top: 0;
+    position:relative;
+    background-color: rgb(32, 204, 204);
+    z-index: 3;
+    
+}
+.nav{
+    height: 75px;
+    display: flex;    
+    border: 2px solid red;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right, rgb(199, 213, 216),rgb(5, 68, 107));
+    justify-content: space-between;
+}
+.logo-container{
+    margin: 5px;
+    left: 0;
+    width: 65px;
+    border: 1px solid black;
+
+}
+.menu-container{
+    margin: 5px;
+    right: 0;
+    width: 95%;
+    border: 1px solid blueviolet;
+
+}
+section{
+    position: relative;
+    display: grid;
+    padding: 0
+    width: 100vw;
+    margin:0;
+    top:50px;
+    background-image: linear-gradient(to bottom, rgb(40, 183, 222),rgb(61, 163, 227));
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 600px 120px 30px 1000px 30px 2000px 300px 400px;
+}
+.about-us-container{
+    background-color: darkgray;
+    grid-area: 8/ 1/ span 1/ span 6;
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.about-us-header{
+    width:90%;
+    height: 10%; 
+    border: 1px solid black; 
+    text-align: center; 
+    margin: 0; 
+    padding: 0;
+    border-radius: 10px;
+    align-items: center;
+    font-size:x-large;
+}
+.about-us-image{
+    width: 30%;
+    background-color: darkcyan;
+    border-radius: 5px;
+    height: 85%;
+    margin: auto;
+    top: 5px;
+
+}
+.about-us-text{
+    width: 65%;
+    background-color: darkgoldenrod;
+    border-radius: 5px;
+    height: 85%;
+    margin: auto;
+    top: 5px;
+
+}
+ @media screen and (max-width: 992px){
+    section{
+        grid-template-rows:  450px 120px 30px 750px 30px 2000px 200px 300px;
+    }
+    .why{
+        width: 47%;
+        height: 30%;
+    }
+    .about-us-image{
+        width: 30%;
+        height:90% ;
+    }
+    .about-us-text{
+        width: 68%;
+        height: 90%;
+    }
+}
+@media screen and (max-width: 650px){
+    section{
+        grid-template-rows: 300px 450px 25px 900px 25px 2500px 150px 520px;
+    }
+    .count-down{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        flex-direction: column;
+        padding: 0;
+    }
+    .count{
+        width: 98%;
+        height: 32%;
+        margin: 0;
+    }
+    .why{
+        width: 95%;
+        height: 16%;
+    }
+    .about-us-image{
+        width: 98%;
+        height: 30%;
+    }
+    .about-us-text{
+        width: 98%;
+        height: 60%;
+    }
+}
+.slider{
+    background-color: blueviolet;
+    grid-area: 1/ 1/ span 1/ span 6;
+}
+.count-down{
+    background-image: linear-gradient(rgb(4, 45, 108), rgb(21, 225, 236));
+    grid-area: 2/ 1/ span 1/ span 6;
+    display: flex;
+}
+
+.why-header{
+    background-color: darkcyan;
+    grid-area: 3/ 1/ span 1/ span 6;
+}
+.why-us-container{
+    background-color: darkgoldenrod;
+    grid-area: 4/1/ span 1/ span 6;
+    display: flex;
+    padding: auto;
+    justify-content:center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.why{
+    width: 47%;
+    height: 30%;
+    background-color: rgb(40, 40, 105);
+    border: 1px solid black;
+    margin: auto;
+}
+
+.course-header{
+    background-color: cadetblue;
+    grid-area: 5/ 1/ span 1/ span 6;
+}
+.course-container{
+    background-color: darkolivegreen;
+    grid-area: 6/ 1/ span 1/ span 6;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.course{
+    width: 100%;
+    height: 24.5%;
+    background-color: aquamarine;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+}
+.map{
+    background-color: darkkhaki;
+    grid-area: 7/ 1/ span 1/ span 6;
+    border: 2px solid salmon;
+    bottom: 20px ;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;    
+}
+

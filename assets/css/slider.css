@@ -80,7 +80,7 @@ body{
     scroll-margin: 0;
     scroll-padding: 0;
 }
-.slider-ul li{
+.slider-li{
     padding: 0.1rem;
     border-radius: 1px;
    /* background-color:rgb(190, 106, 106);*/
@@ -90,7 +90,7 @@ body{
     width: 50px;
     height: 40px;
 }
-.slider-ul li.active{
+.slider-li.active{
     /* background-color: rgb(48, 48, 133);*/
     border: 2px solid darkcyan; 
     position: absolute;

@@ -1,26 +1,68 @@
-.nav-container{
-    display: flex;
+nav{
+    display: flex;    
     margin: 0;
-    padding: 0;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    padding:0;
+    flex-wrap: nowrap;
+    background-color: blue;
+    justify-content: space-around;
+    overflow: hidden;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    top: 0;
 }
 .logocontainer{
-    height: 100%;
-    width: 50px;
-    margin: 0;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin: auto;
     padding: 0;
-    
+    right: 1rem;  
+}
+.navbar{
+    /* height: 3rem; */
+    width: 90%;
+    margin: auto;
+    padding: 0;
+    border: 1px solid red;
+    color: black;
+    right: 1rem;
+    overflow: visible;
+}
+.menu-items{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:flex-start;
+    align-content: flex-start;
+    font-size: 1.5rem;
+    padding: 0;
+    /* flex-direction: row; */
+    text-decoration: none;
+    border-right: 0.1rem solid white;
+    top: 0;
 
 }
-.nav-menu{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: aliceblue;
-}
+ .dropdown{
+    display: flex;
+    flex-direction: column;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* .menu-container{
     display: flex;
     flex-direction: row;

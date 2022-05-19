@@ -40,7 +40,7 @@ var gelen=1;
                 gelen=0;}
             
            }
-            var liElement=document.querySelectorAll("ul li");
+            var liElement=document.querySelectorAll(".slider-li");
         for(var i=0;i<liElement.length;i++){
             liElement[i].onclick=function(){
                gelen =parseInt(this.getAttribute("data-index"));
